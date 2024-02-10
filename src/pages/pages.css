@@ -1,0 +1,32 @@
+.hero{
+    height: calc(100vh - 5rem);
+}
+
+/*---------------
+home media queries
+---------------*/
+@media (max-width: 960px) {
+    .hero{
+        padding-top: 2rem;
+    }
+    .hero,
+    .hero .content{
+        display: block;
+    }
+
+    .hero .content img{
+        margin: 0 auto;
+    }
+
+    .hero .content h1{
+        margin-top: 3rem;
+    }
+
+    .hero .content p{
+        width: 100%;
+    }
+
+    .hero .content .social{
+        margin-top: 2rem;
+    }
+}

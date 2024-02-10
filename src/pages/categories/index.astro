@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Main from '../../components/container/Main.astro'
+
+import CategoriesContainer from '../../components/ui/CategoriesContainer.astro';
+---
+
+<Layout title='categories'>
+    <Main>
+        <h1>Categories</h1>
+
+        <div class="grid grid-cols-3 gap-6">
+            <CategoriesContainer />
+            <CategoriesContainer />
+            <CategoriesContainer />
+            <CategoriesContainer />
+            <CategoriesContainer />
+            <CategoriesContainer />
+        </div>
+    </Main>
+</Layout>   
