@@ -3,24 +3,25 @@ import Layout from "../../layouts/Layout.astro"
 import Main from "../../components/container/Main.astro"
 import Breadcrumbs from "../../components/ui/Breadcrumbs.astro"
 
-import { getEntry } from "astro:content"
+import { getCollection } from "astro:content"
+import type { CollectionEntry } from "astro:content"
 
-const { slug } = Astro.params
-if(slug === undefined){
-    throw new Error('Slug is required')
+export async function getStaticPaths() {
+    const allProducts: CollectionEntry<'product'>[] = await getCollection('product');
+
+    return allProducts.map(entry => ({
+        params: {
+            slug: entry.slug
+        },
+        props: {entry}
+    }))
 }
-
-const entry = await getEntry('product', slug)
-if(entry === undefined){
-    return Astro.redirect('/404')
-}
-
-const { Content } = await entry.render();
+const { entry } = Astro.props;
 ---
 
 <Layout>
     <Main>
-        <Breadcrumbs route={['home', 'shop', slug]}/>
+        <Breadcrumbs route={['home', 'shop', entry.slug]}/>
         <h1>{entry.data.title}</h1>
     </Main>
 </Layout>

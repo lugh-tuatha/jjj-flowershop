@@ -1,0 +1,62 @@
+---
+import './pages.css'
+// external dependencies
+import { Image } from 'astro:assets';
+// layout
+import Layout from '../layouts/Layout.astro';
+// components
+import Main from '../components/container/Main.astro'
+import Title from '../components/typography/Title.astro'
+import Button from '../components/ui/Button.astro';
+// images
+import logo from '../images/logo.svg'
+// constants
+import { SITE_TITLE, SITE_TAGLINE } from '../shared/constants/general'
+---
+
+<Layout title="JJJ Flower Shop">
+    <div class="bg-primary flex items-center home">
+        <Main>
+            <div class="flex flex-row-reverse items-center justify-end gap-10 home__hero">
+                <Image src={logo} alt='brand logo' />
+                <div>
+                    <h1 class="font-bold text-3xl ">{SITE_TITLE}</h1>
+                    <p class="w-72 mt-4 leading-8 italic">{SITE_TAGLINE}</p>
+
+                    <div class="flex items-center gap-4 mt-28 social">
+                        <span class="font-bold text-[1.15rem]">follow us</span>
+                        <div class="w-20 h-[1.5px] bg-accent"></div>
+                    </div>
+                </div>
+            </div>
+        </Main>
+    </div> 
+
+    <Main>
+        <div class="categories mt-8 flex gap-8">
+            <div class="banner w-1/2 grid grid-cols-2 gap-4">
+                <div class="banner__container bg-cover flex-center relative group">
+                    <h1 class="font-bold text-white text-2xl hidden group-hover:block">Wedding</h1>
+                    <Image src='/images/categories/thumb/wedding.png' width={1000} height={1000} alt="" class='absolute -z-10 h-full'>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <div class="banner__container aspect-square bg-cover cursor-pointer flex-center relative group">
+                        <h1 class="font-bold text-white text-2xl group-hover:block hidden">Birthday</h1>
+                        <Image src='/images/categories/thumb/birthday.png' width={1000} height={1000} alt="" class='absolute -z-10 h-full'>
+                    </div>
+                    <div class="banner__container aspect-square bg-cover cursor-pointer flex-center relative group">
+                        <h1 class="font-bold text-white text-2xl hidden group-hover:block">Valentines</h1>
+                        <Image src='/images/categories/thumb/valentines.png' width={1000} height={1000} alt="" class='absolute -z-10 h-full'>
+                    </div>
+                </div>
+            </div>
+
+            <div class="categories__desc w-1/2">
+                <Title>Popular Collection</Title>
+                <p class="mt-2 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, consequuntur at? Eos impedit exercitationem a aspernatur quisquam! Velit corrupti illum quod modi rerum veritatis magnam eveniet? Doloribus eum aspernatur magnam.</p>
+                <Button>Browse Categories</Button>
+            </div>
+        </div>
+    </Main>
+</Layout>
