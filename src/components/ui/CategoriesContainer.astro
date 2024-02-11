@@ -6,15 +6,18 @@ interface Props {
 const { category } = Astro.props;
 ---
 
-<div class="categories aspect-square bg-green-300 w-full flex items-center justify-center text-center">
+<div class="categories aspect-square w-full flex items-center justify-center text-center">
     <div>
-        <h1>{category}</h1>
-        <p>View Products</p>
+        <h1 class="text-white text-3xl">{category}</h1>
+        <p class="text-white">View Products</p>
     </div>
 </div>
 
 <style>
     .categories{
         /* background: url('../../assets/----'); */
+        background-image: url("../../images/categories/thumb/Birthday.svg");
+        background-size: cover;
+        
     }
 </style>
