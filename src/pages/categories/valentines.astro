@@ -1,0 +1,27 @@
+---
+// external dependencies
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+// components
+import Layout from '../../layouts/Layout.astro';
+import Main from '../../components/container/Main.astro'
+import Card from '../../components/ui/Card.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+
+const allProducts: CollectionEntry<'product'>[] = await getCollection('product');
+---
+
+<Layout title='valentines'>
+    <div class="mt-4">
+        <Main>
+            <Breadcrumbs route={['home', 'categories', 'valentines']}/>
+    
+            <div class="grid grid-cols-5 gap-4 mt-6">
+                {allProducts.map(product => (
+                    <Card content={product}/>
+                ))}
+            </div>
+        </Main>
+    </div>
+</Layout>

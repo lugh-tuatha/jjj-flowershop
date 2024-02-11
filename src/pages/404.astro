@@ -1,0 +1,25 @@
+---
+import './pages.css'
+// external dependencies
+import { Image } from 'astro:assets';
+
+// components
+import Layout from '../layouts/Layout.astro'
+import Button from '../components/ui/Button.astro'
+
+// images
+import error from '../images/404.png'
+---
+
+<Layout title='404 - Page Not Found'>
+    <main class="bg-primary _404 flex items-center justify-center">
+        <div>
+            <Image src={error} alt='404' width={550} height={550} class='mx-auto'/>
+            <p class="text-center text-2xl">This page you're looking for doesn't exist or has been removed</p>
+
+            <a href="/" class="w-full flex justify-center mt-4">
+                <Button>Go Back Home</Button>
+            </a>
+        </div>
+    </main>
+</Layout>

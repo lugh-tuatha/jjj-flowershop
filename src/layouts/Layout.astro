@@ -6,7 +6,7 @@ import Header from './_components/Header.astro'
 import Footer from './_components/Footer.astro'
 
 interface Props {
-	title: string;
+	title?: string;
 }
 
 const { title } = Astro.props;
@@ -23,7 +23,7 @@ import { SITE_DESCRIPTION } from '../shared/constants/general'
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>Triple JJJ Flowershop - {title}</title>
 	</head>
 	<body>
 		<Header />

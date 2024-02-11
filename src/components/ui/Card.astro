@@ -1,0 +1,30 @@
+---
+// external dependencies
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+// utils
+import { formatDate } from '../../shared/utils/format-date.utils'
+
+// props
+const { content } = Astro.props;
+interface Props {
+    content: CollectionEntry<'product'>
+}
+---
+
+<div class="relative border-2 border-accent rounded-md">
+    <a href={"/shop/" + content.slug}>
+        <Image src={'/images/categories/' + content.data.tags + '/' + content.data.image} 
+            alt="tes" width={1000} height={1000}
+            class='border-b-2 border-accent rounded-md'/>
+
+        <div class="px-3">
+            <h1 class="text-xl font-bold mt-1">{content.data.title}</h1>    
+            <p class="text-sm opacity-50">₱ {content.data.price}</p>
+            <!-- <a href={"/categories/" + content.data.tags}>{content.data.tags}</a> -->
+            <!-- <p>{formatDate(content.data.publish_date)}</p> -->
+        </div>
+    </a>
+    <button class="w-full py-2 bg-accent mt-4 font-bold">Inquire Now</button>
+</div>

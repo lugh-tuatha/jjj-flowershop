@@ -1,0 +1,34 @@
+---
+// external dependencies
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+// components
+import Layout from '../../layouts/Layout.astro';
+import Main from '../../components/container/Main.astro'
+import Card from '../../components/ui/Card.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+
+// fetch all products
+const allProducts: CollectionEntry<'product'>[] = (await getCollection('product'))
+    .sort((a: CollectionEntry<'product'>, b: CollectionEntry<'product'>) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf());
+
+const recentProducts: CollectionEntry<'product'> = allProducts[0];
+
+const otherProducts: CollectionEntry<'product'>[] = allProducts.slice(1);
+---
+
+<Layout title='Shop'>
+    <div class="mt-4">
+        <Main>
+            <Breadcrumbs route={['home','shop']}/>
+
+            <h1 class="text-3xl font-semibold mt-2 mb-4">Find the <span class="underline">best</span> Flowers! </h1>
+            <div class="sm:grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                {allProducts.map(product => (
+                    <Card content={product}/>
+                ))}
+            </div>
+        </Main>
+    </div>
+</Layout>

@@ -1,21 +1,27 @@
 ---
+// components
 import Layout from '../../layouts/Layout.astro';
 import Main from '../../components/container/Main.astro'
-
 import CategoriesContainer from '../../components/ui/CategoriesContainer.astro';
+import Title from '../../components/typography/Title.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro'
 ---
 
 <Layout title='categories'>
-    <Main>
-        <h1 class="text-accent text-4xl font-semibold py-3">Categories</h1>
-
-        <div class="grid grid-cols-3 gap-6">
-            <CategoriesContainer category="Birthday Bouquets" />
-            <CategoriesContainer category='Wedding Bouquets'/>
-            <CategoriesContainer category='Valentine Bouquets'/>
-            <CategoriesContainer category='Anniversarry Bouquets'/>
-            <CategoriesContainer category='Graduation Bouquets'/>
-            <CategoriesContainer category='Funeral Bouquets'/>
-        </div>
-    </Main>
+    <div class="mt-4">
+        <Main>
+            <Breadcrumbs route={['home', 'categories']}/>
+    
+            <h1 class="text-3xl font-semibold mt-2 mb-4">Blooms for Every <span class="underline">Occasion</span> </h1>
+    
+            <div class="sm:grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <CategoriesContainer image='birthday.png' category="Birthday Bouquets" />
+                <CategoriesContainer image='wedding.png' category='Wedding Bouquets'/>
+                <CategoriesContainer image='valentines.png' category='Valentine Bouquets'/>
+                <CategoriesContainer image='anniversary.png' category='Anniversary Bouquets'/>
+                <CategoriesContainer image='graduation.png' category='Graduation Bouquets'/>
+                <CategoriesContainer image='funeral.png' category='Funeral Bouquets'/>
+            </div>
+        </Main>
+    </div>
 </Layout>   

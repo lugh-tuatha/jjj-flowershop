@@ -1,0 +1,16 @@
+---
+// props
+interface Props {
+	route: Array<string>;
+}
+
+const { route } = Astro.props;
+---
+
+{route.map((name: string, index: number) => (
+    <span>
+        <a href={name == 'home' ? '/' : ''} class="text-accent">
+            / <span class={name == 'home' ? "hover:underline" : ''}>{name}</span> 
+        </a>
+    </span>
+))}

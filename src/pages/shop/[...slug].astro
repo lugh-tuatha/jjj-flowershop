@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Main from "../../components/container/Main.astro"
+import Breadcrumbs from "../../components/ui/Breadcrumbs.astro"
+
+import { getEntry } from "astro:content"
+
+const { slug } = Astro.params
+if(slug === undefined){
+    throw new Error('Slug is required')
+}
+
+const entry = await getEntry('product', slug)
+if(entry === undefined){
+    return Astro.redirect('/404')
+}
+
+const { Content } = await entry.render();
+---
+
+<Layout>
+    <Main>
+        <Breadcrumbs route={['home', 'shop', slug]}/>
+        <h1>{entry.data.title}</h1>
+    </Main>
+</Layout>
