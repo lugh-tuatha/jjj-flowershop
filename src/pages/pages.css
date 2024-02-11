@@ -5,8 +5,12 @@ home styles
     height: calc(100vh - 5rem);
 }
 
-.categories .banner .banner__birthday{
-    background-image: url();
+.categories .banner .banner__container{
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+}
+
+._404{
+    height: calc(100vh - 5rem);
 }
 
 /*---------------
@@ -36,4 +40,9 @@ home media queries
     .home .home__hero .social{
         margin-top: 2rem;
     }
+}
+
+/* reusable tailwind */
+.flex-center{
+    @apply flex items-center justify-center;
 }
