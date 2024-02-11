@@ -1,32 +1,39 @@
-.hero{
+/*---------------
+home styles
+---------------*/
+.home{
     height: calc(100vh - 5rem);
+}
+
+.categories .banner .banner__birthday{
+    background-image: url();
 }
 
 /*---------------
 home media queries
 ---------------*/
 @media (max-width: 960px) {
-    .hero{
+    .home{
         padding-top: 2rem;
     }
-    .hero,
-    .hero .content{
+    .home,
+    .home .home__hero{
         display: block;
     }
 
-    .hero .content img{
+    .home .home__hero img{
         margin: 0 auto;
     }
 
-    .hero .content h1{
+    .home .home__hero h1{
         margin-top: 3rem;
     }
 
-    .hero .content p{
+    .home .home__hero p{
         width: 100%;
     }
 
-    .hero .content .social{
+    .home .home__hero .social{
         margin-top: 2rem;
     }
 }

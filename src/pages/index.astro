@@ -10,13 +10,13 @@ import Layout from '../layouts/Layout.astro';
 import Main from '../components/container/Main.astro'
 
 // images
-import logo from '../assets/logo.svg'
+import logo from '../images/logo.svg'
 ---
 
 <Layout title="JJJ Flower Shop">
-    <div class="bg-primary hero flex items-center">
+    <div class="bg-primary flex items-center home">
         <Main>
-            <div class="flex flex-row-reverse items-center justify-end gap-10 content">
+            <div class="flex flex-row-reverse items-center justify-end gap-10 home__hero">
                 <Image src={logo} alt='brand logo' />
                 <div>
                     <h1 class="font-bold text-3xl ">Tripple JJJ Flowershop</h1>
@@ -26,6 +26,24 @@ import logo from '../assets/logo.svg'
                         <span class="font-bold text-[1.15rem]">follow us</span>
                         <div class="w-20 h-[1.5px] bg-accent"></div>
                     </div>
+                </div>
+            </div>
+
+            <div class="categories">
+                <div class="banner">
+                    <div class="banner__birthday">
+
+                    </div>
+                    <div class="banner__wedding">
+
+                    </div>
+                    <div class="banner__anniversary">
+
+                    </div>
+                </div>
+
+                <div class="categories__desc">
+                    
                 </div>
             </div>
         </Main>
