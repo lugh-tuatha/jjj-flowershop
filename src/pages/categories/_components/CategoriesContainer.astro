@@ -2,17 +2,20 @@
 import { Image } from 'astro:assets';
 interface Props {
 	category: string;
-    image: string
+    image: string;
+    href: string
 }
 
-const { category, image } = Astro.props;
-
+const { category, image, href } = Astro.props;
+    
 ---
 
 <div class="mb-4 sm:mb-0 categories aspect-square w-full relative flex items-center justify-center text-center cursor-pointer">
     <Image src={'/images/categories/thumb/' + image} alt={image} height={1000} width={1000} class='absolute top-0 -z-10'/>
     <div>
         <h1 class="text-white text-3xl font-bold">{category}</h1>
-        <p class="text-white underline">View Products</p>
+        <a href={href}>
+            <p class="text-white underline">View Products</p>
+        </a>
     </div>
 </div>

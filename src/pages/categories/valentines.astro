@@ -13,15 +13,15 @@ const allProducts: CollectionEntry<'product'>[] = await getCollection('product')
 ---
 
 <Layout title='valentines'>
-    <div class="mt-4">
-        <Main>
-            <Breadcrumbs route={['home', 'categories', 'valentines']}/>
-    
-            <div class="grid grid-cols-5 gap-4 mt-6">
-                {allProducts.map(product => (
-                    <Card content={product}/>
-                ))}
-            </div>
-        </Main>
-    </div>
+    <Main>
+        <Breadcrumbs route={['home', 'categories', 'valentines']}/>
+
+        <h1 class="text-3xl font-semibold mt-4 mb-4">Embrace Love's Blossoms</h1>
+
+        <div class="grid grid-cols-5 gap-4 mt-6">
+            {allProducts.map(product => (
+                <Card content={product}/>
+            ))}
+        </div>
+    </Main>
 </Layout>

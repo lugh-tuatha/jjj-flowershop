@@ -7,10 +7,12 @@ interface Props {
 const { route } = Astro.props;
 ---
 
-{route.map((name: string, index: number) => (
-    <span>
-        <a href={name == 'home' ? '/' : ''} class="text-accent">
-            / <span class={name == 'home' ? "hover:underline" : ''}>{name}</span> 
-        </a>
-    </span>
-))}
+<div class="mt-4">
+    {route.map((name: string, index: number) => (
+        <span>
+            <a href={name == 'home' ? '/' : ''} class="text-accent">
+                / <span class={name == 'home' ? "hover:underline" : ''}>{name}</span> 
+            </a>
+        </span>
+    ))}
+</div>

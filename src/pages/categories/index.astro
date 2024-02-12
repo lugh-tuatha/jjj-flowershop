@@ -2,26 +2,24 @@
 // components
 import Layout from '../../layouts/Layout.astro';
 import Main from '../../components/container/Main.astro'
-import CategoriesContainer from '../../components/ui/CategoriesContainer.astro';
+import CategoriesContainer from './_components/CategoriesContainer.astro';
 import Title from '../../components/typography/Title.astro';
 import Breadcrumbs from '../../components/ui/Breadcrumbs.astro'
 ---
 
 <Layout title='categories'>
-    <div class="mt-4">
-        <Main>
-            <Breadcrumbs route={['home', 'categories']}/>
-    
-            <h1 class="text-3xl font-semibold mt-2 mb-4">Blooms for Every <span class="underline">Occasion</span> </h1>
-    
-            <div class="sm:grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-                <CategoriesContainer image='birthday.png' category="Birthday Bouquets" />
-                <CategoriesContainer image='wedding.png' category='Wedding Bouquets'/>
-                <CategoriesContainer image='valentines.png' category='Valentine Bouquets'/>
-                <CategoriesContainer image='anniversary.png' category='Anniversary Bouquets'/>
-                <CategoriesContainer image='graduation.png' category='Graduation Bouquets'/>
-                <CategoriesContainer image='funeral.png' category='Funeral Bouquets'/>
-            </div>
-        </Main>
-    </div>
+    <Main>
+        <Breadcrumbs route={['home', 'categories']}/>
+
+        <h1 class="text-3xl font-semibold mt-2 mb-4">Blooms for Every <span class="underline">Occasion</span> </h1>
+
+        <div class="sm:grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <CategoriesContainer href='categories/valentines' image='birthday.png' category="Birthday Bouquets" />
+            <CategoriesContainer href='categories/valentines' image='wedding.png' category='Wedding Bouquets'/>
+            <CategoriesContainer href='categories/valentines' image='valentines.png' category='Valentine Bouquets'/>
+            <CategoriesContainer href='categories/valentines' image='anniversary.png' category='Anniversary Bouquets'/>
+            <CategoriesContainer href='categories/valentines' image='graduation.png' category='Graduation Bouquets'/>
+            <CategoriesContainer href='categories/valentines' image='funeral.png' category='Funeral Bouquets'/>
+        </div>
+    </Main>
 </Layout>   

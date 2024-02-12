@@ -11,7 +11,7 @@ import Button from '../components/ui/Button.astro';
 // images
 import logo from '../images/logo.svg'
 // constants
-import { SITE_TITLE, SITE_TAGLINE } from '../shared/constants/general'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../shared/constants/general'
 ---
 
 <Layout title="JJJ Flower Shop">
@@ -21,7 +21,7 @@ import { SITE_TITLE, SITE_TAGLINE } from '../shared/constants/general'
                 <Image src={logo} alt='brand logo' />
                 <div>
                     <h1 class="font-bold text-3xl ">{SITE_TITLE}</h1>
-                    <p class="w-72 mt-4 leading-8 italic">{SITE_TAGLINE}</p>
+                    <p class="w-72 mt-4 leading-8 italic">{SITE_DESCRIPTION}</p>
 
                     <div class="flex items-center gap-4 mt-28 social">
                         <span class="font-bold text-[1.15rem]">follow us</span>
