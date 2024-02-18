@@ -13,7 +13,7 @@ interface Props {
 }
 ---
 
-<div class="relative border-2 border-accent rounded-md">
+<div class="mt-4 sm:mt-0 relative border-2 border-accent rounded-md">
     <a href={"/shop/" + content.slug}>
         <Image src={'/images/categories/' + content.data.tags + '/' + content.data.image} 
             alt="tes" width={1000} height={1000}
@@ -26,5 +26,7 @@ interface Props {
             <!-- <p>{formatDate(content.data.publish_date)}</p> -->
         </div>
     </a>
-    <button class="w-full py-2 bg-accent mt-4 font-bold">Inquire Now</button>
+    <a href={content.data.message_at} target="_blank">
+        <button class="w-full py-2 bg-accent mt-4 font-bold">Inquire Now</button>
+    </a>
 </div>

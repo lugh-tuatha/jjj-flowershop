@@ -1,0 +1,69 @@
+---
+import type { GetStaticPaths } from "astro";
+// external dependencies
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+// components
+import Layout from '../../layouts/Layout.astro';
+import Main from '../../components/container/Main.astro'
+import Card from '../../components/ui/Card.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import { Image } from "astro:assets";
+
+// images
+import noresult from '../../images/no_result.png'
+
+export async function getStaticPaths() {
+    return [
+        {
+            params: { category: "birthday" },
+            props: { description: "Uncover Exquisite Blooms for Birthdays" }
+        },
+        {
+            params: { category: "wedding" },
+            props: { description: 'Embark on an Elegant Floral Journey' }
+        },
+        {
+            params: { category: "valentines" },
+            props: { description: "Embrace Love's Blossoms" }
+        },
+        {
+            params: { category: "anniversary" },
+            props: { description: 'Unveil Exquisite Blossoms for Anniversaries' }
+        },
+        {
+            params: { category: "graduation" },
+            props: { description: 'Elevate Your Graduation with Exceptional Blooms' }
+        },
+        {
+            params: { category: "funeral" },
+            props: { description: 'Meaningful Blooms for Farewells' }
+        },
+    ];
+};
+
+const { category } = Astro.params;
+const { description } = Astro.props;
+
+const allProducts: CollectionEntry<'product'>[] = await getCollection('product');
+const productsbyCategories = allProducts.filter(post => post.data.tags.includes(category))
+---
+
+<Layout title={category}>
+    <Main>
+        <Breadcrumbs route={['home', 'categories', 'valentines']}/>
+
+        <h1 class="text-3xl font-semibold mt-4 mb-4">{description}</h1>
+
+        <div class=`${productsbyCategories.length === 0 ? 'flex justify-center' : 'grid grid-cols-5 gap-4 mt-6'}`>
+            {productsbyCategories.length === 0 ? (
+                <Image src={noresult} height={500} width={500} alt="no result"/>
+            ) : (
+                productsbyCategories.map(product => (
+                    <Card content={product}/>
+                ))
+            )}
+        </div>
+    </Main>
+</Layout>

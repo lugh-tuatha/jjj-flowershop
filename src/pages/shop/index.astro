@@ -2,20 +2,22 @@
 // external dependencies
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import { Image } from 'astro:assets';
 
 // components
 import Layout from '../../layouts/Layout.astro';
 import Main from '../../components/container/Main.astro'
 import Card from '../../components/ui/Card.astro';
 import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import Button from '../../components/ui/Button.astro';
+
+// utils
+import { integerToCurrency } from '../../shared/utils/integer-to-currency.utils';
 
 // fetch all products
 const allProducts: CollectionEntry<'product'>[] = (await getCollection('product'))
     .sort((a: CollectionEntry<'product'>, b: CollectionEntry<'product'>) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf());
-
-const recentProducts: CollectionEntry<'product'> = allProducts[0];
-
+const recentProducts: CollectionEntry<'product'> = allProducts[0]
+const featuredProducts: CollectionEntry<'product'>[] = [allProducts[0], allProducts[1]];
 const otherProducts: CollectionEntry<'product'>[] = allProducts.slice(1);
 ---
 
@@ -23,33 +25,34 @@ const otherProducts: CollectionEntry<'product'>[] = allProducts.slice(1);
     <Main>
         <Breadcrumbs route={['home','shop']}/>
 
-        <div class="flex mt-4 gap-4">
-            <div class="p-8 flex justify-between bg-[#f0f0f0] w-2/3">
-                <div class="w-1/2">
-                    <h1 class="text-4xl font-bold">Lorem ipsum dolor sit.</h1>
-                    <p class="my-8 font-light opacity-75">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, optio. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit.</p>
-                    <button class="px-8 py-2 bg-accent font-semibold text-xl">Inquire Now</button>
+        <div class="md:flex mt-4 gap-4">
+            <div class="p-8 md:flex justify-between bg-[#f0f0f0] md:w-2/3">
+                <div class="md:w-1/2">
+                    <h1 class="text-4xl font-bold">{recentProducts.data.title}</h1>
+                    <p class="my-8 font-light opacity-75">{recentProducts.data.description}</p>
+                    <a href={recentProducts.data.message_at} target="_blank">
+                        <Button>Inquire Now</Button>
+                    </a>
                 </div>
-                <Image src={'/images/categories/valentines/fall-for-you.webp'} /
-                    alt='flower' height={1000} width={1000} class='w-64'/> 
+                <img src={'/images/categories/valentines/fall-for-you.webp'} 
+                    alt='flower' class='w-64 mt-4 md:mt-0'/> 
             </div>
-            <div class="w-1/3 flex flex-col gap-4">
-                <div class="p-4 flex gap-4 bg-[#f0f0f0]">
-                    <div>
-                        <h1 class="text-3xl font-semibold">Lorem ipsum dolor sit.</h1>
-                        <button class="px-8 py-2 mt-4 bg-accent font-semibold text-xl">Inquire Now</button>
+            <div class="mt-4 md:mt-0 md:w-1/3 flex flex-col gap-4">
+                {featuredProducts.map(product =>(
+                <div class="p-4 flex gap-4 justify-between bg-[#f0f0f0]">
+                    <div class="flex flex-col items-between w-full justify-between">
+                        <div>
+                            <h1 class="text-2xl font-semibold">{product.data.title}</h1>
+                            <h2 class="text-accent font-semibold">{integerToCurrency(product.data.price)}</h2>
+                        </div>
+                        <a href={product.data.message_at} target="_blank">
+                            <Button>Inquire Now</Button>
+                        </a>
                     </div>
-                    <Image src={'/images/categories/valentines/fall-for-you.webp'} /
-                    alt='flower' height={1000} width={1000} class='w-32'/> 
+                    <img src={'/images/categories/' + product.data.tags + '/' + product.data.image}
+                    alt='flower' class='w-32'/> 
                 </div>
-                <div class="p-4 flex gap-4 bg-[#f0f0f0]">
-                    <div>
-                        <h1 class="text-3xl font-semibold">Lorem ipsum dolor sit.</h1>
-                        <button class="px-8 py-2 mt-4 bg-accent font-semibold text-xl">Inquire Now</button>
-                    </div>
-                    <Image src={'/images/categories/valentines/fall-for-you.webp'} /
-                    alt='flower' height={1000} width={1000} class='w-32'/> 
-                </div>
+                ))}
             </div>
         </div>
 
