@@ -17,9 +17,6 @@ home styles
 home media queries
 ---------------*/
 @media (max-width: 960px) {
-    .home{
-        padding-top: 2rem;
-    }
     .home,
     .home .home__hero{
         display: block;

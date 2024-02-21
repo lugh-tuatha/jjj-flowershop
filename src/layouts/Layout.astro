@@ -2,9 +2,8 @@
 import './layout.css'
 
 // components 
-import Header from './_components/Header.astro'
 import Footer from './_components/Footer.astro'
-
+import Header from './_components/Header.jsx';
 interface Props {
 	title?: string;
 }
@@ -21,13 +20,13 @@ import { SITE_DESCRIPTION } from '../shared/constants/general'
 		<meta charset="UTF-8" />
 		<meta name="description" content={SITE_DESCRIPTION} />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Triple JJJ Flowershop - {title}</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	</head>
 	<body>
-		<Header />
+		<Header client:load/>
 			<slot />
 		<Footer />
 	</body>

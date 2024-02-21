@@ -13,7 +13,7 @@ interface Props {
 }
 ---
 
-<div class="mt-4 sm:mt-0 relative border-2 border-accent rounded-md">
+<div class="mt-4 sm:mt-0 relative border-2 border-accent rounded-md flex flex-col justify-between">
     <a href={"/shop/" + content.slug}>
         <Image src={'/images/categories/' + content.data.tags + '/' + content.data.image} 
             alt="tes" width={1000} height={1000}

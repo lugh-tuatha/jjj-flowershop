@@ -1,0 +1,27 @@
+---
+// components
+import Layout from '../layouts/Layout.astro';
+import Main from '../components/container/Main.astro';
+import Accordion from '../components/ui/Accordion.astro';
+import Breadcrumbs from '../components/ui/Breadcrumbs.astro';
+---
+
+<Layout title='faqs'>
+    <Main>
+        <Breadcrumbs route={["faqs"]}/>
+        <h1 class="text-3xl font-semibold mt-2 mb-4">Faq's</h1>
+
+        <div class="w-full mt-4 space-y-3 mb-96">
+            <Accordion label="Do you offer delivery services?" 
+                content="Yes, we provide delivery services to the NCR (National Capital Region)."/>
+            <Accordion label="Do you offer same-day delivery?" 
+                content="Yes, we offer same-day delivery for orders placed before 12nn. Please note that same-day delivery may not be available during peak seasons or holidays."/>
+            <Accordion label="What payment methods do you accept?" 
+                content="We accept major credit cards, Gcash, and other secure payment methods."/>
+            <Accordion label="Can I include a personalized message with my order?" 
+                content="Absolutely! You can include a personalized message during the checkout process, and we'll ensure it's included with your order."/>
+            <Accordion label="Can I specify a delivery date and time?" 
+                content="Yes, you can specify your preferred delivery date during the checkout process."/>
+        </div>
+    </Main>
+</Layout>

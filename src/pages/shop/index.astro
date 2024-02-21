@@ -17,48 +17,52 @@ import { integerToCurrency } from '../../shared/utils/integer-to-currency.utils'
 const allProducts: CollectionEntry<'product'>[] = (await getCollection('product'))
     .sort((a: CollectionEntry<'product'>, b: CollectionEntry<'product'>) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf());
 const recentProduct: CollectionEntry<'product'> = allProducts[0]
-const featuredProducts: CollectionEntry<'product'>[] = [allProducts[0], allProducts[1]];
-const otherProducts: CollectionEntry<'product'>[] = allProducts.slice(1);
+const featuredProducts: CollectionEntry<'product'>[] = [allProducts[1], allProducts[2]];
+const otherProducts: CollectionEntry<'product'>[] = allProducts.slice(3);
 ---
 
 <Layout title='Shop'>
     <Main>
-        <Breadcrumbs route={['home','shop']}/>
+        <Breadcrumbs route={['shop']}/>
 
         <div class="md:flex mt-4 gap-4">
-            <div class="p-8 md:flex justify-between bg-[#f0f0f0] md:w-2/3">
-                <div class="md:w-1/2">
+            <div class="p-4 md:p-8 md:flex justify-between bg-[#f0f0f0] gap-8 text-justify md:w-2/3">
+                <div class="w-full flex flex-col gap-4 justify-between">
                     <h1 class="text-4xl font-bold">{recentProduct.data.title}</h1>
-                    <p class="my-8 font-light opacity-75">{recentProduct.data.description}</p>
+                    <p class="font-light opacity-75">{recentProduct.data.description}</p>
                     <a href={recentProduct.data.message_at} target="_blank">
                         <Button>Inquire Now</Button>
                     </a>
                 </div>
-                <img src={'/images/categories/' + recentProduct.data.tags + '/' + recentProduct.data.image} 
-                    alt='flower' class='w-64 mt-4 md:mt-0'/> 
+                <a href={"/shop/" + recentProduct.slug}>
+                    <img src={'/images/categories/' + recentProduct.data.tags + '/' + recentProduct.data.image} 
+                    alt='flower' class='w-64 h-full mt-4 aspect-square md:mt-0'/> 
+                </a>
             </div>
             <div class="mt-4 md:mt-0 md:w-1/3 flex flex-col gap-4">
                 {featuredProducts.map(product =>(
-                <div class="p-4 flex gap-4 justify-between bg-[#f0f0f0]">
-                    <div class="flex flex-col items-between w-full justify-between">
-                        <div>
-                            <h1 class="text-2xl font-semibold">{product.data.title}</h1>
-                            <h2 class="text-accent font-semibold">{integerToCurrency(product.data.price)}</h2>
+                    <div class="p-4 h-1/2 flex gap-4 justify-between bg-[#f0f0f0]">
+                        <div class="flex flex-col items-between justify-between" style="width: calc(100% - 8rem);">
+                            <div>
+                                <h1 class="text-xl md:text-2xl font-semibold">{product.data.title}</h1>
+                                <h2 class="text-accent font-semibold">{integerToCurrency(product.data.price)}</h2>
+                            </div>
+                            <a href={product.data.message_at} target="_blank">
+                                <Button>Inquire Now</Button>
+                            </a>
                         </div>
-                        <a href={product.data.message_at} target="_blank">
-                            <Button>Inquire Now</Button>
+                        <a href={"/shop/" + product.slug}>
+                            <img src={'/images/categories/' + product.data.tags + '/' + product.data.image}
+                            alt='flower' class='w-32 h-full aspect-square'/> 
                         </a>
                     </div>
-                    <img src={'/images/categories/' + product.data.tags + '/' + product.data.image}
-                    alt='flower' class='w-32'/> 
-                </div>
                 ))}
             </div>
         </div>
 
         <h1 class="text-3xl font-semibold mt-4 mb-4">Find the <span class="underline">best</span> Flowers! </h1>
         <div class="sm:grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" data-aos="zoom-in">
-            {allProducts.map(product => (
+            {otherProducts.map(product => (
                 <Card content={product}/>
             ))}
         </div>

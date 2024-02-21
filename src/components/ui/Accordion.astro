@@ -1,0 +1,18 @@
+---
+// props
+interface Props {
+	label: String;
+	content: String;
+}
+
+const { label, content } = Astro.props;
+---
+
+<details>
+    <summary class="font-semibold py-2 px-4 bg-[#f0f0f0] text-lg cursor-pointer">{label}</summary>
+    <div class="">
+        <p class="leading-6 py-2 px-4 bg-[#f0f0f0]">
+            {content}
+        </p>
+    </div>
+</details>

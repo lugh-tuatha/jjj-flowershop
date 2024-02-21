@@ -52,11 +52,11 @@ const productsbyCategories = allProducts.filter(post => post.data.tags.includes(
 
 <Layout title={category}>
     <Main>
-        <Breadcrumbs route={['home', 'categories', 'valentines']}/>
+        <Breadcrumbs route={['categories', 'valentines']}/>
 
         <h1 class="text-3xl font-semibold mt-4 mb-4">{description}</h1>
 
-        <div class=`${productsbyCategories.length === 0 ? 'flex justify-center' : 'grid grid-cols-5 gap-4 mt-6'}`>
+        <div class=`${productsbyCategories.length === 0 ? 'flex justify-center' : 'sm:grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4'}`>
             {productsbyCategories.length === 0 ? (
                 <Image src={noresult} height={500} width={500} alt="no result"/>
             ) : (
