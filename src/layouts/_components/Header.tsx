@@ -24,7 +24,7 @@ const Header = () => {
                         <li><a href="/faqs">Faqs</a></li>
                     </ul>
 
-                    <button className="hidden sm:block px-5 py-2 cursor-pointer text-xl bg-accent p-4">Inquire Now</button>
+                    <button className="hidden sm:block px-5 py-2 cursor-pointer text-xl bg-accent p-4 hover:opacity-100 opacity-80">Inquire Now</button>
                     <i className="fa-solid fa-bars text-3xl cursor-pointer sm:hidden" onClick={toggleMenu}></i>
                 </div>
             </main>

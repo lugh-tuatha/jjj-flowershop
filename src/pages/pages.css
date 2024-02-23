@@ -1,10 +1,6 @@
 /*---------------
 home styles
 ---------------*/
-.home{
-    height: calc(100vh - 5rem);
-}
-
 .categories .banner .banner__container{
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
 }
@@ -36,6 +32,12 @@ home media queries
 
     .home .home__hero .social{
         margin-top: 2rem;
+    }
+}
+
+@media (min-width: 640px) {
+    .home__hero{
+        height: calc(100vh - 5rem);
     }
 }
 
