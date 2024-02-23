@@ -4,7 +4,7 @@ description: '"Eternal Remembrance" unfurls as a tribute to enduring love and ch
 publish_date: 2024-02-12
 image: 'eternal-remembrance.jpg'
 price: 1800
-message_at: 'https://www.facebook.com/messages/t/100000342752401'
+message_at: 'https://m.me/justin.egonia'
 tags: 'funeral'
 slug: eternal-remembrance
 ---

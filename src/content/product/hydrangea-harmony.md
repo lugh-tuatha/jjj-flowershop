@@ -5,7 +5,7 @@ description: |
 publish_date: 2024-02-12
 image: 'hydrangea-harmony.jpg'
 price: 3800
-message_at: 'https://www.facebook.com/messages/t/100000342752401'
+message_at: 'https://m.me/justin.egonia'
 tags: 'wedding'
 slug: hydrangea-harmony
 ---

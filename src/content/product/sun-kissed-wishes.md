@@ -5,7 +5,7 @@ description: |
 publish_date: 2024-02-12
 image: 'sun-kissed-wishes.jpg'
 price: 2300
-message_at: 'https://www.facebook.com/messages/t/100000342752401'
+message_at: 'https://m.me/justin.egonia'
 tags: 'birthday'
 slug: sun-kissed-wishes
 ---

@@ -5,7 +5,7 @@ description: |
 publish_date: 2024-02-12
 image: 'sorbet.jpg'
 price: 2500
-message_at: 'https://www.facebook.com/messages/t/100000342752401'
+message_at: 'https://m.me/justin.egonia'
 tags: 'birthday'
 slug: sweet-sorbet-birthday-blooms
 ---

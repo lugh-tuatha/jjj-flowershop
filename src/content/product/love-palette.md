@@ -4,7 +4,7 @@ description: '"Love Palette" is a masterpiece of affection, painted with the vib
 publish_date: 2024-02-12
 image: 'love-palette.jpg'
 price: 5000
-message_at: 'https://www.facebook.com/messages/t/100000342752401'
+message_at: 'https://m.me/justin.egonia'
 tags: 'valentines'
 slug: love-palette
 ---

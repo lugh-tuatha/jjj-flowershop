@@ -5,7 +5,7 @@ description: |
 publish_date: 2024-02-12
 image: 'rose-petal-romance.jpg'
 price: 4500
-message_at: 'https://www.facebook.com/messages/t/100000342752401'
+message_at: 'https://m.me/justin.egonia'
 tags: 'wedding'
 slug: rose-petal-romance
 ---

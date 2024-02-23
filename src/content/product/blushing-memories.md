@@ -4,7 +4,7 @@ description: '"Blushing Memories" is a bouquet that encapsulates the tender esse
 publish_date: 2024-02-12
 image: 'blushing-memories.jpg'
 price: 3500
-message_at: 'https://www.facebook.com/messages/t/100000342752401'
+message_at: 'https://m.me/justin.egonia'
 tags: 'anniversary'
 slug: blushing-memories
 ---
