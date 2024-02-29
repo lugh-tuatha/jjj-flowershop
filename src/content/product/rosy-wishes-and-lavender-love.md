@@ -4,7 +4,7 @@ description: '"Rosy Wishes and Lavender Love" weaves a tapestry of heartfelt sen
 publish_date: 2024-02-12
 image: 'rosy-wishes-and-lavender-love.jpg'
 price: 3500
-message_at: 'https://m.me/justin.egonia'
+message_at: 'http://m.me/justin.egonia?text=Hi%20I%20am%20interested%20in%20this%20product.%20Could%20you%20please%20provide%20availability%20details?%0A%0Aproduct%20link:%20https://jjj-flowershop.vercel.app/shop/rosy-wishes-and-lavender-love'
 tags: 'birthday'
 slug: rosy-wishes-and-lavender-love
 ---

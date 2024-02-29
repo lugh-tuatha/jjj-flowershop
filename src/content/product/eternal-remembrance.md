@@ -4,7 +4,7 @@ description: '"Eternal Remembrance" unfurls as a tribute to enduring love and ch
 publish_date: 2024-02-12
 image: 'eternal-remembrance.jpg'
 price: 1800
-message_at: 'https://m.me/justin.egonia'
+message_at: 'http://m.me/justin.egonia?text=Hi%20I%20am%20interested%20in%20this%20product.%20Could%20you%20please%20provide%20availability%20details?%0A%0Aproduct%20link:%20https://jjj-flowershop.vercel.app/shop/eternal-remembrance'
 tags: 'funeral'
 slug: eternal-remembrance
 ---
